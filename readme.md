@@ -1,6 +1,6 @@
 <p align="center"><a href="#installation">Installation</a> • <a href="#usage">Usage</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
 
-## `deadline`
+## `deadline` [![Build Status](https://travis-ci.org/essentialkaos/deadline.svg?branch=master)](https://travis-ci.org/essentialkaos/deadline)
 
 `deadline` is a simple utility for controlling application working time.
 
