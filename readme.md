@@ -37,7 +37,6 @@ go get -u github.com/essentialkaos/deadline
 [sudo] yum install deadline
 ```
 </details>
-```
 
 ### Usage
 
