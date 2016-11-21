@@ -9,7 +9,6 @@ go:
 
 os:
   - linux
-  - osx
 
 branches:
   only:
