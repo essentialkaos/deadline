@@ -1,28 +1,42 @@
-## `deadline`
+<p align="center"><a href="#installation">Installation</a> • <a href="#usage">Usage</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
+
+## `deadline` [![Build Status](https://travis-ci.org/essentialkaos/deadline.svg?branch=master)](https://travis-ci.org/essentialkaos/deadline)
 
 `deadline` is a simple utility for controlling application working time.
 
 ### Installation
 
-#### From sources
+<details>
+<summary><strong>From sources</strong></summary>
+
+To build the MDToc from scratch, make sure you have a working Go 1.5+ workspace ([instructions](https://golang.org/doc/install)), then:
 
 ```
 go get github.com/essentialkaos/deadline
 ```
 
-#### From ESSENTIAL KAOS Public repo for RHEL6/CentOS6
+If you want update `deadline` to latest stable release, do:
 
+```
+go get -u github.com/essentialkaos/deadline
+```
+</details>
+
+<details>
+<summary><strong>From ESSENTIAL KAOS Public repo for RHEL6/CentOS6</strong></summary>
 ```
 [sudo] yum install -y https://yum.kaos.io/6/release/i386/kaos-repo-7.2-0.el6.noarch.rpm
 [sudo] yum install deadline
 ```
+</details>
 
-#### From ESSENTIAL KAOS Public repo for RHEL7/CentOS7
-
+<details>
+<summary><strong>From ESSENTIAL KAOS Public repo for RHEL7/CentOS7</strong></summary>
 ```
 [sudo] yum install -y https://yum.kaos.io/7/release/x86_64/kaos-repo-7.2-0.el7.noarch.rpm
 [sudo] yum install deadline
 ```
+</details>
 
 ### Usage
 
