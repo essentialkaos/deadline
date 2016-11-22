@@ -9,7 +9,7 @@
 <details>
 <summary><strong>From sources</strong></summary>
 
-To build the MDToc from scratch, make sure you have a working Go 1.5+ workspace ([instructions](https://golang.org/doc/install)), then:
+To build the `deadline` from scratch, make sure you have a working Go 1.5+ workspace ([instructions](https://golang.org/doc/install)), then:
 
 ```
 go get github.com/essentialkaos/deadline
