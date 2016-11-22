@@ -121,7 +121,7 @@ func showUsage() {
 	info.AddOption(ARG_VER, "Show version")
 
 	info.AddExample(
-		"5m ./my-script.sh arg1 arg2",
+		"5m my-script.sh arg1 arg2",
 		"Run my-script.sh with 5 minute limit",
 	)
 
@@ -131,7 +131,7 @@ func showUsage() {
 func showAbout() {
 	about := &usage.About{
 		App:     "Deadline",
-		Version: "1.0.0",
+		Version: "1.0.1",
 		Desc:    "Simple utility for controlling application working time",
 		Year:    2006,
 		Owner:   "ESSENTIAL KAOS",
