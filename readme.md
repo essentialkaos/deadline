@@ -50,7 +50,7 @@ Options
 
 Examples
 
-  deadline 5m ./my-script.sh arg1 arg2
+  deadline 5m my-script.sh arg1 arg2
   Run my-script.sh with 5 minute limit
 
 ```
