@@ -41,17 +41,20 @@ go get -u github.com/essentialkaos/deadline
 ### Usage
 
 ```
-Usage: deadline max-time command...
+Usage: deadline {options} time:signal command...
 
 Options
 
-  --help, -h        Show this help message
-  --version, -v     Show version
+  --help, -h       Show this help message
+  --version, -v    Show version
 
 Examples
 
   deadline 5m my-script.sh arg1 arg2
-  Run my-script.sh with 5 minute limit
+  Run my-script.sh and send TERM signal in 5 minutes
+
+  deadline 5m:KILL my-script.sh arg1 arg2
+  Run my-script.sh and send KILL signal in 5 minutes
 
 ```
 
