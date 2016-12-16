@@ -2,7 +2,7 @@
 
 ## `deadline` [![Build Status](https://travis-ci.org/essentialkaos/deadline.svg?branch=master)](https://travis-ci.org/essentialkaos/deadline)
 
-`deadline` is a simple utility for controlling application working time.
+`deadline` is a simple utility for controlling application working time. Unlike [`timeout`](https://linux.die.net/man/1/timeout) `deadline` send `KILL` signal for main processes and all child processes. This feature is very useful with shell scripts.
 
 ### Installation
 
