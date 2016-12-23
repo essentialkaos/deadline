@@ -36,7 +36,7 @@ const ERROR_EXIT_CODE = 99
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 type SignalInfo struct {
-	Time   int64
+	Wait   int64
 	Signal syscall.Signal
 }
 
@@ -133,7 +133,7 @@ func monitor(sigInfo SignalInfo) {
 
 		elapsed++
 
-		if elapsed >= sigInfo.Time && !signalSent {
+		if elapsed >= sigInfo.Wait && !signalSent {
 			signalSent = true
 			sendSignal(sigInfo.Signal)
 		}
@@ -191,24 +191,24 @@ func getAllSubProcPIDs(info *process.ProcessInfo) []int {
 
 // parseSignalInfo parse signal data
 func parseTimeAndSignal(data string) (SignalInfo, error) {
-	var time int64
+	var wait int64
 	var sig syscall.Signal
 
 	if !strings.Contains(data, ":") {
-		time = timeutil.ParseDuration(data)
+		wait = timeutil.ParseDuration(data)
 
-		if time == 0 {
+		if wait == 0 {
 			return SignalInfo{}, fmt.Errorf("Can't parse %s", data)
 		}
 
-		return SignalInfo{time, syscall.SIGTERM}, nil
+		return SignalInfo{wait, syscall.SIGTERM}, nil
 	}
 
 	dataSlice := strings.Split(data, ":")
 
-	time = timeutil.ParseDuration(dataSlice[0])
+	wait = timeutil.ParseDuration(dataSlice[0])
 
-	if time == 0 {
+	if wait == 0 {
 		return SignalInfo{}, fmt.Errorf("Can't parse %s", data)
 	}
 
@@ -279,7 +279,7 @@ func parseTimeAndSignal(data string) (SignalInfo, error) {
 		return SignalInfo{}, fmt.Errorf("Unsupported signal %s", dataSlice[1])
 	}
 
-	return SignalInfo{time, sig}, nil
+	return SignalInfo{wait, sig}, nil
 }
 
 // ////////////////////////////////////////////////////////////////////////////////// //
