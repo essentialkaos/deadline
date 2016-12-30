@@ -17,11 +17,11 @@ import (
 	"syscall"
 	"time"
 
-	"pkg.re/essentialkaos/ek.v5/env"
-	"pkg.re/essentialkaos/ek.v5/fsutil"
-	"pkg.re/essentialkaos/ek.v5/system/process"
-	"pkg.re/essentialkaos/ek.v5/timeutil"
-	"pkg.re/essentialkaos/ek.v5/usage"
+	"pkg.re/essentialkaos/ek.v6/env"
+	"pkg.re/essentialkaos/ek.v6/fsutil"
+	"pkg.re/essentialkaos/ek.v6/system/process"
+	"pkg.re/essentialkaos/ek.v6/timeutil"
+	"pkg.re/essentialkaos/ek.v6/usage"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
