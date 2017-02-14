@@ -2,7 +2,7 @@
 
 ## `deadline` [![Build Status](https://travis-ci.org/essentialkaos/deadline.svg?branch=master)](https://travis-ci.org/essentialkaos/deadline)
 
-`deadline` is a simple utility for controlling application working time.
+`deadline` is a simple utility for controlling application working time. Unlike [`timeout`](https://linux.die.net/man/1/timeout) `deadline` send `KILL` signal for main processes and all child processes. This feature is very useful with shell scripts.
 
 ### Installation
 
@@ -41,17 +41,20 @@ go get -u github.com/essentialkaos/deadline
 ### Usage
 
 ```
-Usage: deadline max-time command...
+Usage: deadline {options} time:signal command...
 
 Options
 
-  --help, -h        Show this help message
-  --version, -v     Show version
+  --help, -h       Show this help message
+  --version, -v    Show version
 
 Examples
 
   deadline 5m my-script.sh arg1 arg2
-  Run my-script.sh with 5 minute limit
+  Run my-script.sh and send TERM signal in 5 minutes
+
+  deadline 5m:KILL my-script.sh arg1 arg2
+  Run my-script.sh and send KILL signal in 5 minutes
 
 ```
 
