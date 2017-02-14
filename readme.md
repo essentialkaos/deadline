@@ -1,6 +1,6 @@
 <p align="center"><a href="#installation">Installation</a> • <a href="#usage">Usage</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
 
-## `deadline` [![Build Status](https://travis-ci.org/essentialkaos/deadline.svg?branch=master)](https://travis-ci.org/essentialkaos/deadline)
+## `deadline` [![Build Status](https://travis-ci.org/essentialkaos/deadline.svg?branch=master)](https://travis-ci.org/essentialkaos/deadline) [![Go Report Card](https://goreportcard.com/badge/github.com/essentialkaos/deadline)](https://goreportcard.com/report/github.com/essentialkaos/deadline) [![License](https://gh.kaos.io/ekol.svg)](https://essentialkaos.com/ekol)
 
 `deadline` is a simple utility for controlling application working time. Unlike [`timeout`](https://linux.die.net/man/1/timeout) `deadline` send `KILL` signal for main processes and all child processes. This feature is very useful with shell scripts.
 
