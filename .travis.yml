@@ -5,6 +5,7 @@ language: go
 go:
   - 1.6.x
   - 1.7.x
+  - 1.8.x
   - tip
 
 os:
@@ -21,7 +22,7 @@ matrix:
     - go: tip
 
 before_install:
-  - go get pkg.re/essentialkaos/ek.v6
+  - go get -v pkg.re/essentialkaos/ek.v7
 
 script:
   - go build deadline.go
