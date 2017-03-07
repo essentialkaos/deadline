@@ -2,8 +2,8 @@ package main
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                     Copyright (c) 2009-2016 Essential Kaos                         //
-//      Essential Kaos Open Source License <http://essentialkaos.com/ekol?en>         //
+//                     Copyright (c) 2009-2017 ESSENTIAL KAOS                         //
+//        Essential Kaos Open Source License <https://essentialkaos.com/ekol>         //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
 
@@ -17,11 +17,19 @@ import (
 	"syscall"
 	"time"
 
-	"pkg.re/essentialkaos/ek.v6/env"
-	"pkg.re/essentialkaos/ek.v6/fsutil"
-	"pkg.re/essentialkaos/ek.v6/system/process"
-	"pkg.re/essentialkaos/ek.v6/timeutil"
-	"pkg.re/essentialkaos/ek.v6/usage"
+	"pkg.re/essentialkaos/ek.v7/env"
+	"pkg.re/essentialkaos/ek.v7/fsutil"
+	"pkg.re/essentialkaos/ek.v7/system/process"
+	"pkg.re/essentialkaos/ek.v7/timeutil"
+	"pkg.re/essentialkaos/ek.v7/usage"
+)
+
+// ////////////////////////////////////////////////////////////////////////////////// //
+
+const (
+	APP  = "deadline"
+	VER  = "1.2.0"
+	DESC = "Simple utility for controlling application working time"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -31,6 +39,7 @@ const (
 	ARG_VER  = "v:version"
 )
 
+// exit code used as error marker
 const ERROR_EXIT_CODE = 99
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -305,9 +314,9 @@ func showUsage() {
 
 func showAbout() {
 	about := &usage.About{
-		App:     "Deadline",
-		Version: "1.1.0",
-		Desc:    "Simple utility for controlling application working time",
+		App:     APP,
+		Version: VER,
+		Desc:    DESC,
 		Year:    2006,
 		Owner:   "ESSENTIAL KAOS",
 		License: "Essential Kaos Open Source License <https://essentialkaos.com/ekol>",
