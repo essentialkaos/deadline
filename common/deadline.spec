@@ -10,7 +10,7 @@
 
 Summary:         Simple utility for controlling application working time
 Name:            deadline
-Version:         1.1.0
+Version:         1.2.0
 Release:         0%{?dist}
 Group:           Applications/System
 License:         EKOL
@@ -57,5 +57,8 @@ rm -rf %{buildroot}
 ###############################################################################
 
 %changelog
+* Tue Mar 07 2017 Anton Novojilov <andy@essentialkaos.com> - 1.2.0-0
+- ek package updated to latest version
+
 * Fri Jan 13 2017 Anton Novojilov <andy@essentialkaos.com> - 1.1.0-0
 - Initial build
