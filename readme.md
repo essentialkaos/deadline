@@ -6,8 +6,13 @@
 
 ### Installation
 
-<details>
-<summary><strong>From sources</strong></summary>
+#### From sources
+
+Before the initial install allows git to use redirects for [pkg.re](https://github.com/essentialkaos/pkgre) service (reason why you should do this described [here](https://github.com/essentialkaos/pkgre#git-support)):
+
+```
+git config --global http.https://pkg.re.followRedirects true
+```
 
 To build the `deadline` from scratch, make sure you have a working Go 1.6+ workspace ([instructions](https://golang.org/doc/install)), then:
 
@@ -15,28 +20,26 @@ To build the `deadline` from scratch, make sure you have a working Go 1.6+ works
 go get github.com/essentialkaos/deadline
 ```
 
-If you want update `deadline` to latest stable release, do:
+If you want to update `deadline` to latest stable release, do:
 
 ```
 go get -u github.com/essentialkaos/deadline
 ```
-</details>
 
-<details>
-<summary><strong>From ESSENTIAL KAOS Public repo for RHEL6/CentOS6</strong></summary>
+#### From ESSENTIAL KAOS Public repo for RHEL6/CentOS6
+
 ```
-[sudo] yum install -y https://yum.kaos.io/6/release/i386/kaos-repo-7.2-0.el6.noarch.rpm
+[sudo] yum install -y https://yum.kaos.io/6/release/x86_64/kaos-repo-8.0-0.el6.noarch.rpm
 [sudo] yum install deadline
 ```
-</details>
 
-<details>
-<summary><strong>From ESSENTIAL KAOS Public repo for RHEL7/CentOS7</strong></summary>
+
+#### From ESSENTIAL KAOS Public repo for RHEL7/CentOS7
+
 ```
-[sudo] yum install -y https://yum.kaos.io/7/release/x86_64/kaos-repo-7.2-0.el7.noarch.rpm
+[sudo] yum install -y https://yum.kaos.io/7/release/x86_64/kaos-repo-8.0-0.el7.noarch.rpm
 [sudo] yum install deadline
 ```
-</details>
 
 ### Usage
 
