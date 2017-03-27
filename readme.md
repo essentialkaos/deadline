@@ -28,7 +28,7 @@ go get -u github.com/essentialkaos/deadline
 
 #### From ESSENTIAL KAOS Public repo for RHEL6/CentOS6
 
-````
+```
 [sudo] yum install -y https://yum.kaos.io/6/release/x86_64/kaos-repo-8.0-0.el6.noarch.rpm
 [sudo] yum install deadline
 ```
