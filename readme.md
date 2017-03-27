@@ -9,13 +9,19 @@
 <details>
 <summary><strong>From sources</strong></summary>
 
+Before the initial install allows git to use redirects for [pkg.re](https://github.com/essentialkaos/pkgre) service (reason why you should do this described [here](https://github.com/essentialkaos/pkgre#git-support)):
+
+```
+git config --global http.https://pkg.re.followRedirects true
+```
+
 To build the `deadline` from scratch, make sure you have a working Go 1.6+ workspace ([instructions](https://golang.org/doc/install)), then:
 
 ```
 go get github.com/essentialkaos/deadline
 ```
 
-If you want update `deadline` to latest stable release, do:
+If you want to update `deadline` to latest stable release, do:
 
 ```
 go get -u github.com/essentialkaos/deadline
