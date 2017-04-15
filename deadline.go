@@ -17,18 +17,18 @@ import (
 	"syscall"
 	"time"
 
-	"pkg.re/essentialkaos/ek.v7/env"
-	"pkg.re/essentialkaos/ek.v7/fsutil"
-	"pkg.re/essentialkaos/ek.v7/system/process"
-	"pkg.re/essentialkaos/ek.v7/timeutil"
-	"pkg.re/essentialkaos/ek.v7/usage"
+	"pkg.re/essentialkaos/ek.v8/env"
+	"pkg.re/essentialkaos/ek.v8/fsutil"
+	"pkg.re/essentialkaos/ek.v8/system/process"
+	"pkg.re/essentialkaos/ek.v8/timeutil"
+	"pkg.re/essentialkaos/ek.v8/usage"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 const (
 	APP  = "deadline"
-	VER  = "1.2.0"
+	VER  = "1.3.0"
 	DESC = "Simple utility for controlling application working time"
 )
 
