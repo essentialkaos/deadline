@@ -1,3 +1,5 @@
+// +build linux
+
 package main
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -28,7 +30,7 @@ import (
 
 const (
 	APP  = "deadline"
-	VER  = "1.3.0"
+	VER  = "1.3.1"
 	DESC = "Simple utility for controlling application working time"
 )
 
