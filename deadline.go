@@ -21,6 +21,7 @@ import (
 
 	"pkg.re/essentialkaos/ek.v9/env"
 	"pkg.re/essentialkaos/ek.v9/fsutil"
+	"pkg.re/essentialkaos/ek.v9/strutil"
 	"pkg.re/essentialkaos/ek.v9/system/process"
 	"pkg.re/essentialkaos/ek.v9/timeutil"
 	"pkg.re/essentialkaos/ek.v9/usage"
@@ -30,15 +31,15 @@ import (
 
 const (
 	APP  = "deadline"
-	VER  = "1.4.0"
+	VER  = "1.5.0"
 	DESC = "Simple utility for controlling application working time"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 const (
-	ARG_HELP = "h:help"
-	ARG_VER  = "v:version"
+	OPT_HELP = "h:help"
+	OPT_VER  = "v:version"
 )
 
 // exit code used as error marker
@@ -60,17 +61,19 @@ var cmd *exec.Cmd
 func main() {
 	runtime.GOMAXPROCS(2)
 
-	if len(os.Args) <= 2 {
-		showUsage()
-		return
+	if len(os.Args) == 2 {
+		switch os.Args[1] {
+		case "-h", "--help":
+			showUsage()
+			return
+		case "-v", "--version":
+			showAbout()
+			return
+		}
 	}
 
-	switch os.Args[1] {
-	case "-h", "--help":
+	if len(os.Args) <= 2 {
 		showUsage()
-		return
-	case "-v", "--version":
-		showAbout()
 		return
 	}
 
@@ -104,15 +107,17 @@ func run(args []string) {
 
 // parseArgs parse command-line arguments
 func parseArgs(args []string) (SignalInfo, string, []string) {
-	var err error
-	var sigInfo SignalInfo
-	var cmdApp string
-	var cmdArgs []string
+	var (
+		err     error
+		sigInfo SignalInfo
+		cmdApp  string
+		cmdArgs []string
+	)
 
 	sigInfo, err = parseTimeAndSignal(args[1])
 
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err.Error())
+		printError(err.Error())
 		os.Exit(ERROR_EXIT_CODE)
 	}
 
@@ -123,7 +128,7 @@ func parseArgs(args []string) (SignalInfo, string, []string) {
 	}
 
 	if !fsutil.CheckPerms("FX", cmdApp) {
-		fmt.Fprintf(os.Stderr, "Can't execute %s\n", args[2])
+		printError("Can't execute command \"%s\"", args[2])
 		os.Exit(ERROR_EXIT_CODE)
 	}
 
@@ -215,15 +220,15 @@ func parseTimeAndSignal(data string) (SignalInfo, error) {
 		return SignalInfo{wait, syscall.SIGTERM}, nil
 	}
 
-	dataSlice := strings.Split(data, ":")
-
-	wait = timeutil.ParseDuration(dataSlice[0])
+	wait = timeutil.ParseDuration(strutil.ReadField(data, 0, true, ":"))
 
 	if wait == 0 {
 		return SignalInfo{}, fmt.Errorf("Can't parse %s", data)
 	}
 
-	switch strings.ToUpper(dataSlice[1]) {
+	signal := strutil.ReadField(data, 1, true, ":")
+
+	switch strings.ToUpper(signal) {
 	case "SIGABRT", "ABRT", "6":
 		sig = syscall.SIGABRT
 	case "SIGALRM", "ALRM", "14":
@@ -287,19 +292,30 @@ func parseTimeAndSignal(data string) (SignalInfo, error) {
 	case "":
 		return SignalInfo{}, fmt.Errorf("Signal is not set")
 	default:
-		return SignalInfo{}, fmt.Errorf("Unsupported signal %s", dataSlice[1])
+		return SignalInfo{}, fmt.Errorf("Unsupported signal %s", signal)
 	}
 
 	return SignalInfo{wait, sig}, nil
 }
 
+// printError prints error message to stderr
+func printError(message string, args ...interface{}) {
+	switch len(args) {
+	case 0:
+		fmt.Fprintf(os.Stderr, "%s\n", message)
+	case 1:
+		fmt.Fprintf(os.Stderr, "%s\n", fmt.Sprintf(message, args...))
+	}
+}
+
 // ////////////////////////////////////////////////////////////////////////////////// //
 
+// showUsage shows usage info
 func showUsage() {
 	info := usage.NewInfo("", "time:signal", "command...")
 
-	info.AddOption(ARG_HELP, "Show this help message")
-	info.AddOption(ARG_VER, "Show version")
+	info.AddOption(OPT_HELP, "Show this help message")
+	info.AddOption(OPT_VER, "Show version")
 
 	info.AddExample(
 		"5m my-script.sh arg1 arg2",
@@ -314,6 +330,7 @@ func showUsage() {
 	info.Render()
 }
 
+// showAbout shows info about version
 func showAbout() {
 	about := &usage.About{
 		App:     APP,
