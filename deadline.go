@@ -31,7 +31,7 @@ import (
 
 const (
 	APP  = "deadline"
-	VER  = "1.5.0"
+	VER  = "1.5.1"
 	DESC = "Simple utility for controlling application working time"
 )
 
@@ -144,9 +144,7 @@ func monitor(sigInfo SignalInfo) {
 	var elapsed int64
 	var signalSent bool
 
-	for {
-		time.Sleep(time.Second)
-
+	for range time.NewTicker(time.Second).C {
 		elapsed++
 
 		if elapsed >= sigInfo.Wait && !signalSent {
