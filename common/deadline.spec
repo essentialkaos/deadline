@@ -10,7 +10,7 @@
 
 Summary:         Simple utility for controlling application working time
 Name:            deadline
-Version:         1.5.0
+Version:         1.5.1
 Release:         0%{?dist}
 Group:           Applications/System
 License:         EKOL
@@ -57,6 +57,9 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Thu Dec 13 2018 Anton Novojilov <andy@essentialkaos.com> - 1.5.1-0
+- Code refactoring
+
 * Fri Nov 02 2018 Anton Novojilov <andy@essentialkaos.com> - 1.5.0-0
 - Fixed bug with showing version info
 - Code refactoring
