@@ -21,7 +21,7 @@ Before the initial install allows git to use redirects for [pkg.re](https://gith
 git config --global http.https://pkg.re.followRedirects true
 ```
 
-To build the `deadline` from scratch, make sure you have a working Go 1.8+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+To build the `deadline` from scratch, make sure you have a working Go 1.10+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
 go get github.com/essentialkaos/deadline
@@ -36,7 +36,7 @@ go get -u github.com/essentialkaos/deadline
 #### From ESSENTIAL KAOS Public repo for RHEL6/CentOS6
 
 ```
-[sudo] yum install -y https://yum.kaos.st/6/release/x86_64/kaos-repo-9.1-0.el6.noarch.rpm
+[sudo] yum install -y https://yum.kaos.st/kaos-repo-latest.el6.noarch.rpm
 [sudo] yum install deadline
 ```
 
@@ -44,9 +44,13 @@ go get -u github.com/essentialkaos/deadline
 #### From ESSENTIAL KAOS Public repo for RHEL7/CentOS7
 
 ```
-[sudo] yum install -y https://yum.kaos.st/7/release/x86_64/kaos-repo-9.1-0.el7.noarch.rpm
+[sudo] yum install -y https://yum.kaos.st/kaos-repo-latest.el7.noarch.rpm
 [sudo] yum install deadline
 ```
+
+#### Prebuilt binaries
+
+You can download prebuilt binaries for Linux from [EK Apps Repository](https://apps.kaos.st/deadline/latest).
 
 ### Usage
 
