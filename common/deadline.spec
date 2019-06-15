@@ -16,11 +16,11 @@ Group:           Applications/System
 License:         EKOL
 URL:             https://github.com/essentialkaos/deadline
 
-Source0:         https://source.kaos.io/%{name}/%{name}-%{version}.tar.bz2
+Source0:         https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
 
 BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:   golang >= 1.10
+BuildRequires:   golang >= 1.12
 
 Provides:        %{name} = %{version}-%{release}
 
