@@ -10,17 +10,17 @@
 
 Summary:         Simple utility for controlling application working time
 Name:            deadline
-Version:         1.5.1
+Version:         1.5.2
 Release:         0%{?dist}
 Group:           Applications/System
 License:         EKOL
 URL:             https://github.com/essentialkaos/deadline
 
-Source0:         https://source.kaos.io/%{name}/%{name}-%{version}.tar.bz2
+Source0:         https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
 
 BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:   golang >= 1.10
+BuildRequires:   golang >= 1.11
 
 Provides:        %{name} = %{version}-%{release}
 
@@ -57,6 +57,9 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Wed Dec 04 2019 Anton Novojilov <andy@essentialkaos.com> - 1.5.2-0
+- ek package updated to v11
+
 * Thu Dec 13 2018 Anton Novojilov <andy@essentialkaos.com> - 1.5.1-0
 - Code refactoring
 
