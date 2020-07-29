@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://travis-ci.com/essentialkaos/deadline"><img src="https://travis-ci.com/essentialkaos/deadline.svg"></a>
+  <a href="https://github.com/essentialkaos/deadline/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/deadline/workflows/CodeQL/badge.svg" /></a>
   <a href="https://goreportcard.com/report/github.com/essentialkaos/deadline"><img src="https://goreportcard.com/badge/github.com/essentialkaos/deadline"></a>
   <a href="https://codebeat.co/projects/github-com-essentialkaos-deadline-master"><img alt="codebeat badge" src="https://codebeat.co/badges/698e5d36-2465-4266-b3d2-7f58e52d5362" /></a>
   <a href="https://essentialkaos.com/ekol"><img src="https://gh.kaos.st/ekol.svg"></a>
