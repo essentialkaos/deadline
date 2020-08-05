@@ -13,7 +13,7 @@ Name:            deadline
 Version:         1.5.2
 Release:         0%{?dist}
 Group:           Applications/System
-License:         EKOL
+License:         Apache 2.0
 URL:             https://github.com/essentialkaos/deadline
 
 Source0:         https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
