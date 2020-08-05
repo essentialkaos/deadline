@@ -5,7 +5,7 @@
   <a href="https://github.com/essentialkaos/deadline/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/deadline/workflows/CodeQL/badge.svg" /></a>
   <a href="https://goreportcard.com/report/github.com/essentialkaos/deadline"><img src="https://goreportcard.com/badge/github.com/essentialkaos/deadline"></a>
   <a href="https://codebeat.co/projects/github-com-essentialkaos-deadline-master"><img alt="codebeat badge" src="https://codebeat.co/badges/698e5d36-2465-4266-b3d2-7f58e52d5362" /></a>
-  <a href="https://essentialkaos.com/ekol"><img src="https://gh.kaos.st/ekol.svg"></a>
+  <a href="#license"><img src="https://gh.kaos.st/apache2.svg"></a>
 </p>
 
 <p align="center"><a href="#installation">Installation</a> • <a href="#usage">Usage</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
@@ -79,6 +79,6 @@ Before contributing to this project please read our [Contributing Guidelines](ht
 
 ### License
 
-[EKOL](https://essentialkaos.com/ekol)
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 <p align="center"><a href="https://essentialkaos.com"><img src="https://gh.kaos.st/ekgh.svg"/></a></p>
