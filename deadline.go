@@ -19,19 +19,19 @@ import (
 	"syscall"
 	"time"
 
-	"pkg.re/essentialkaos/ek.v11/env"
-	"pkg.re/essentialkaos/ek.v11/fsutil"
-	"pkg.re/essentialkaos/ek.v11/strutil"
-	"pkg.re/essentialkaos/ek.v11/system/process"
-	"pkg.re/essentialkaos/ek.v11/timeutil"
-	"pkg.re/essentialkaos/ek.v11/usage"
+	"pkg.re/essentialkaos/ek.v12/env"
+	"pkg.re/essentialkaos/ek.v12/fsutil"
+	"pkg.re/essentialkaos/ek.v12/strutil"
+	"pkg.re/essentialkaos/ek.v12/system/process"
+	"pkg.re/essentialkaos/ek.v12/timeutil"
+	"pkg.re/essentialkaos/ek.v12/usage"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 const (
 	APP  = "deadline"
-	VER  = "1.5.2"
+	VER  = "1.5.3"
 	DESC = "Simple utility for controlling application working time"
 )
 
