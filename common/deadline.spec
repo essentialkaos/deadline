@@ -36,6 +36,7 @@ Simple utility for controlling application working time.
 
 %build
 export GOPATH=$(pwd)
+export GO111MODULE=auto
 go build src/github.com/essentialkaos/%{name}/%{name}.go
 
 %install
