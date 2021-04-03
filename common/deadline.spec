@@ -10,7 +10,7 @@
 
 Summary:         Simple utility for controlling application working time
 Name:            deadline
-Version:         1.5.3
+Version:         1.5.4
 Release:         0%{?dist}
 Group:           Applications/System
 License:         Apache 2.0
@@ -20,7 +20,7 @@ Source0:         https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
 
 BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:   golang >= 1.14
+BuildRequires:   golang >= 1.15
 
 Provides:        %{name} = %{version}-%{release}
 
@@ -57,6 +57,9 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Sun Apr 04 2021 Anton Novojilov <andy@essentialkaos.com> - 1.5.4-0
+- Updated compatibility with the latest version of ek
+
 * Fri Dec 04 2020 Anton Novojilov <andy@essentialkaos.com> - 1.5.3-0
 - ek package updated to v12
 

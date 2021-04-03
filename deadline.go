@@ -4,7 +4,7 @@ package main
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2020 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2021 ESSENTIAL KAOS                          //
 //      Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>     //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -31,7 +31,7 @@ import (
 
 const (
 	APP  = "deadline"
-	VER  = "1.5.3"
+	VER  = "1.5.4"
 	DESC = "Simple utility for controlling application working time"
 )
 
@@ -205,22 +205,23 @@ func getAllSubProcPIDs(info *process.ProcessInfo) []int {
 
 // parseSignalInfo parse signal data
 func parseTimeAndSignal(data string) (SignalInfo, error) {
+	var err error
 	var wait int64
 	var sig syscall.Signal
 
 	if !strings.Contains(data, ":") {
-		wait = timeutil.ParseDuration(data)
+		wait, err = timeutil.ParseDuration(data)
 
-		if wait == 0 {
+		if err != nil {
 			return SignalInfo{}, fmt.Errorf("Can't parse %s", data)
 		}
 
 		return SignalInfo{wait, syscall.SIGTERM}, nil
 	}
 
-	wait = timeutil.ParseDuration(strutil.ReadField(data, 0, true, ":"))
+	wait, err = timeutil.ParseDuration(strutil.ReadField(data, 0, true, ":"))
 
-	if wait == 0 {
+	if err != nil {
 		return SignalInfo{}, fmt.Errorf("Can't parse %s", data)
 	}
 
