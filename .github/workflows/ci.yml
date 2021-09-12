@@ -64,4 +64,4 @@ jobs:
       - name: Check specs with Perfecto
         uses: essentialkaos/perfecto-action@v1
         with:
-          files: ./perfecto-docker common/deadline.spec
+          files: common/deadline.spec
