@@ -1,14 +1,14 @@
 <p align="center"><a href="#readme"><img src="https://gh.kaos.st/deadline.svg"/></a></p>
 
 <p align="center">
-  <a href="https://github.com/essentialkaos/deadline/actions"><img src="https://github.com/essentialkaos/deadline/workflows/CI/badge.svg" alt="GitHub Actions Status" /></a>
-  <a href="https://github.com/essentialkaos/deadline/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/deadline/workflows/CodeQL/badge.svg" /></a>
-  <a href="https://goreportcard.com/report/github.com/essentialkaos/deadline"><img src="https://goreportcard.com/badge/github.com/essentialkaos/deadline"></a>
-  <a href="https://codebeat.co/projects/github-com-essentialkaos-deadline-master"><img alt="codebeat badge" src="https://codebeat.co/badges/698e5d36-2465-4266-b3d2-7f58e52d5362" /></a>
+  <a href="https://kaos.sh/w/deadline/ci"><img src="https://kaos.sh/w/deadline/ci.svg" alt="GitHub Actions CI Status" /></a>
+  <a href="https://kaos.sh/r/deadline"><img src="https://kaos.sh/r/deadline.svg" alt="GoReportCard" /></a>
+  <a href="https://kaos.sh/b/deadline"><img src="https://kaos.sh/b/698e5d36-2465-4266-b3d2-7f58e52d5362.svg" alt="codebeat badge" /></a>
+  <a href="https://kaos.sh/w/deadline/codeql"><img src="https://kaos.sh/w/deadline/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src="https://gh.kaos.st/apache2.svg"></a>
 </p>
 
-<p align="center"><a href="#installation">Installation</a> • <a href="#usage">Usage</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
+<p align="center"><a href="#installation">Installation</a> • <a href="#usage">Usage</a> • <a href="#build-status">Build Status</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
 
 <br/>
 
@@ -18,7 +18,7 @@
 
 #### From sources
 
-To build the `deadline` from scratch, make sure you have a working Go 1.14+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+To build the `deadline` from scratch, make sure you have a working Go 1.16+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
 go get github.com/essentialkaos/deadline
@@ -66,6 +66,13 @@ Examples
   Run my-script.sh and send KILL signal in 5 minutes
 
 ```
+
+### Build Status
+
+| Branch | Status |
+|--------|--------|
+| `master` | [![CI](https://kaos.sh/w/deadline/ci.svg?branch=master)](https://kaos.sh/w/deadline/ci?query=branch:master) |
+| `develop` | [![CI](https://kaos.sh/w/deadline/ci.svg?branch=master)](https://kaos.sh/w/deadline/ci?query=branch:develop) |
 
 ### Contributing
 
