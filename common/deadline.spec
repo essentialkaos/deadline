@@ -10,7 +10,7 @@
 
 Summary:         Simple utility for controlling application working time
 Name:            deadline
-Version:         1.5.4
+Version:         1.5.5
 Release:         0%{?dist}
 Group:           Applications/System
 License:         Apache 2.0
@@ -20,7 +20,7 @@ Source0:         https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
 
 BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:   golang >= 1.15
+BuildRequires:   golang >= 1.17
 
 Provides:        %{name} = %{version}-%{release}
 
@@ -36,8 +36,9 @@ Simple utility for controlling application working time.
 
 %build
 export GOPATH=$(pwd)
-export GO111MODULE=auto
-go build src/github.com/essentialkaos/%{name}/%{name}.go
+pushd src/github.com/essentialkaos/%{name}
+  go build -mod vendor -o $GOPATH/%{name} %{name}.go
+popd
 
 %install
 rm -rf %{buildroot}
@@ -58,6 +59,11 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Wed Mar 30 2022 Anton Novojilov <andy@essentialkaos.com> - 1.5.5-0
+- Removed pkg.re usage
+- Added module info
+- Added Dependabot configuration
+
 * Sun Apr 04 2021 Anton Novojilov <andy@essentialkaos.com> - 1.5.4-0
 - Updated compatibility with the latest version of ek
 
