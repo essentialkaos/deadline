@@ -5,7 +5,7 @@ package main
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2022 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2023 ESSENTIAL KAOS                          //
 //      Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>     //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -32,7 +32,7 @@ import (
 
 const (
 	APP  = "deadline"
-	VER  = "1.5.5"
+	VER  = "1.5.6"
 	DESC = "Simple utility for controlling application working time"
 )
 

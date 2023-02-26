@@ -1,28 +1,24 @@
 ################################################################################
 
-# rpmbuilder:relative-pack true
+%define debug_package  %{nil}
 
 ################################################################################
 
-%define  debug_package %{nil}
+Summary:        Simple utility for controlling application working time
+Name:           deadline
+Version:        1.5.6
+Release:        0%{?dist}
+Group:          Applications/System
+License:        Apache 2.0
+URL:            https://kaos.sh/deadline
 
-################################################################################
+Source0:        https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
 
-Summary:         Simple utility for controlling application working time
-Name:            deadline
-Version:         1.5.5
-Release:         0%{?dist}
-Group:           Applications/System
-License:         Apache 2.0
-URL:             https://kaos.sh/deadline
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Source0:         https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
+BuildRequires:  golang >= 1.19
 
-BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-
-BuildRequires:   golang >= 1.17
-
-Provides:        %{name} = %{version}-%{release}
+Provides:       %{name} = %{version}-%{release}
 
 ################################################################################
 
@@ -35,16 +31,21 @@ Simple utility for controlling application working time.
 %setup -q
 
 %build
-export GOPATH=$(pwd)
-pushd src/github.com/essentialkaos/%{name}
-  go build -mod vendor -o $GOPATH/%{name} %{name}.go
+if [[ ! -d "%{name}/vendor" ]] ; then
+  echo "This package requires vendored dependencies"
+  exit 1
+fi
+
+pushd %{name}
+  go build %{name}.go
+  cp LICENSE ..
 popd
 
 %install
 rm -rf %{buildroot}
 
 install -dm 755 %{buildroot}%{_bindir}
-install -pm 755 %{name} %{buildroot}%{_bindir}/
+install -pm 755 %{name}/%{name} %{buildroot}%{_bindir}/
 
 %clean
 rm -rf %{buildroot}
@@ -59,6 +60,12 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Sun Feb 26 2023 Anton Novojilov <andy@essentialkaos.com> - 1.5.6-0
+- Dependencies update
+
+* Wed Nov 30 2022 Anton Novojilov <andy@essentialkaos.com> - 1.5.5-1
+- Fixed build using sources from source.kaos.st
+
 * Wed Mar 30 2022 Anton Novojilov <andy@essentialkaos.com> - 1.5.5-0
 - Removed pkg.re usage
 - Added module info
