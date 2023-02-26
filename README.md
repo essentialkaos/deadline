@@ -18,7 +18,7 @@
 
 #### From sources
 
-To build the `deadline` from scratch, make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+To build the `deadline` from scratch, make sure you have a working Go 1.19+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
 go get github.com/essentialkaos/deadline
@@ -33,7 +33,7 @@ go get -u github.com/essentialkaos/deadline
 #### From [ESSENTIAL KAOS Public Repository](https://yum.kaos.st)
 
 ```bash
-sudo yum install -y https://yum.kaos.st/get/$(uname -r).rpm
+sudo yum install -y https://yum.kaos.st/kaos-repo-latest.el$(grep 'CPE_NAME' /etc/os-release | tr -d '"' | cut -d':' -f5).noarch.rpm
 sudo yum install deadline
 ```
 
