@@ -1,24 +1,24 @@
 ################################################################################
 
-%define  debug_package %{nil}
+%define debug_package  %{nil}
 
 ################################################################################
 
-Summary:         Simple utility for controlling application working time
-Name:            deadline
-Version:         1.5.5
-Release:         1%{?dist}
-Group:           Applications/System
-License:         Apache 2.0
-URL:             https://kaos.sh/deadline
+Summary:        Simple utility for controlling application working time
+Name:           deadline
+Version:        1.5.6
+Release:        0%{?dist}
+Group:          Applications/System
+License:        Apache 2.0
+URL:            https://kaos.sh/deadline
 
-Source0:         https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
+Source0:        https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
 
-BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:   golang >= 1.19
+BuildRequires:  golang >= 1.19
 
-Provides:        %{name} = %{version}-%{release}
+Provides:       %{name} = %{version}-%{release}
 
 ################################################################################
 
@@ -60,6 +60,9 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Sun Feb 26 2023 Anton Novojilov <andy@essentialkaos.com> - 1.5.6-0
+- Dependencies update
+
 * Wed Nov 30 2022 Anton Novojilov <andy@essentialkaos.com> - 1.5.5-1
 - Fixed build using sources from source.kaos.st
 
