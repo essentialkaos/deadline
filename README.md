@@ -21,13 +21,7 @@
 To build the `deadline` from scratch, make sure you have a working Go 1.19+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
-go get github.com/essentialkaos/deadline
-```
-
-If you want to update `deadline` to latest stable release, do:
-
-```
-go get -u github.com/essentialkaos/deadline
+go install github.com/essentialkaos/deadline@latest
 ```
 
 #### From [ESSENTIAL KAOS Public Repository](https://yum.kaos.st)
