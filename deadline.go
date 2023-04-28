@@ -193,11 +193,11 @@ func killAllProcesses() {
 func getAllSubProcPIDs(info *process.ProcessInfo) []int {
 	var result = []int{info.PID}
 
-	if len(info.Childs) == 0 {
+	if len(info.Children) == 0 {
 		return result
 	}
 
-	for _, p := range info.Childs {
+	for _, p := range info.Children {
 		result = append(result, getAllSubProcPIDs(p)...)
 	}
 
