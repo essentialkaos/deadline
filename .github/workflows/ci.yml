@@ -32,13 +32,13 @@ jobs:
         go: [ '1.20.x', '1.21.x' ]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
-
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Download dependencies
         working-directory: ${{env.SRC_DIR}}
