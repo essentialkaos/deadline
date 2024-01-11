@@ -5,18 +5,31 @@ on:
     branches: [master, develop]
   pull_request:
     branches: [master]
+  workflow_dispatch:
+    inputs:
+      force_run:
+        description: 'Force workflow run'
+        required: true
+        type: choice
+        options: [yes, no]
+
+permissions:
+  actions: read
+  contents: read
+  statuses: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   Go:
     name: Go
     runs-on: ubuntu-latest
 
-    env:
-      SRC_DIR: src/github.com/${{ github.repository }}
-
     strategy:
       matrix:
-        go: [ '1.19.x', '1.20.x' ]
+        go: [ '1.20.x', '1.21.x' ]
 
     steps:
       - name: Set up Go
@@ -26,8 +39,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: ${{env.SRC_DIR}}
 
       - name: Download dependencies
         working-directory: ${{env.SRC_DIR}}
