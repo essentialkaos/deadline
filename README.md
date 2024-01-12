@@ -18,22 +18,16 @@
 
 #### From sources
 
-To build the `deadline` from scratch, make sure you have a working Go 1.19+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+To build the `deadline` from scratch, make sure you have a working Go 1.19+ workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
-go get github.com/essentialkaos/deadline
-```
-
-If you want to update `deadline` to latest stable release, do:
-
-```
-go get -u github.com/essentialkaos/deadline
+go install github.com/essentialkaos/deadline@latest
 ```
 
 #### From [ESSENTIAL KAOS Public Repository](https://yum.kaos.st)
 
 ```bash
-sudo yum install -y https://yum.kaos.st/kaos-repo-latest.el$(grep 'CPE_NAME' /etc/os-release | tr -d '"' | cut -d':' -f5).noarch.rpm
+sudo yum install -y https://pkgs.kaos.st/kaos-repo-latest.el$(grep 'CPE_NAME' /etc/os-release | tr -d '"' | cut -d':' -f5).noarch.rpm
 sudo yum install deadline
 ```
 
@@ -50,7 +44,7 @@ bash <(curl -fsSL https://apps.kaos.st/get) deadline
 ### Usage
 
 ```
-Usage: deadline {options} time:signal command...
+Usage: deadline {options} time:signal command…
 
 Options
 
@@ -64,7 +58,6 @@ Examples
 
   deadline 5m:KILL my-script.sh arg1 arg2
   Run my-script.sh and send KILL signal in 5 minutes
-
 ```
 
 ### Build Status
