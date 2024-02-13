@@ -241,13 +241,13 @@ func parseTimeAndSignal(data string) (SignalInfo, error) {
 		return SignalInfo{wait, syscall.SIGTERM}, nil
 	}
 
-	wait, err = timeutil.ParseDuration(strutil.ReadField(data, 0, true, ":"))
+	wait, err = timeutil.ParseDuration(strutil.ReadField(data, 0, true, ':'))
 
 	if err != nil {
 		return SignalInfo{}, fmt.Errorf("Can't parse %q", data)
 	}
 
-	signal := strutil.ReadField(data, 1, true, ":")
+	signal := strutil.ReadField(data, 1, true, ':')
 
 	switch strings.ToUpper(signal) {
 	case "SIGABRT", "ABRT", "6":
