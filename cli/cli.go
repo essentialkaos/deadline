@@ -2,7 +2,7 @@ package cli
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2023 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2024 ESSENTIAL KAOS                          //
 //      Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>     //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -21,19 +21,20 @@ import (
 	"github.com/essentialkaos/ek/v12/fmtc"
 	"github.com/essentialkaos/ek/v12/fsutil"
 	"github.com/essentialkaos/ek/v12/strutil"
+	"github.com/essentialkaos/ek/v12/support"
+	"github.com/essentialkaos/ek/v12/support/deps"
 	"github.com/essentialkaos/ek/v12/system/process"
+	"github.com/essentialkaos/ek/v12/terminal"
 	"github.com/essentialkaos/ek/v12/terminal/tty"
 	"github.com/essentialkaos/ek/v12/timeutil"
 	"github.com/essentialkaos/ek/v12/usage"
-
-	"github.com/essentialkaos/deadline/support"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 const (
 	APP  = "deadline"
-	VER  = "1.6.0"
+	VER  = "1.6.1"
 	DESC = "Simple utility for controlling application working time"
 )
 
@@ -45,7 +46,7 @@ const (
 )
 
 // ERROR_EXIT_CODE is exit code used as error marker
-const ERROR_EXIT_CODE = 99
+const ERROR_EXIT_CODE = 255
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
@@ -56,6 +57,7 @@ type SignalInfo struct {
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
+// cmd is passed command
 var cmd *exec.Cmd
 
 // colorTagApp contains color tag for app name
@@ -81,7 +83,10 @@ func Run(gitRev string, gomod []byte) {
 			genAbout(gitRev).Print()
 			return
 		case "-vv", "--verbose-version":
-			support.Print(APP, VER, gitRev, gomod)
+			support.Collect(APP, VER).
+				WithRevision(gitRev).
+				WithDeps(deps.Extract(gomod)).
+				Print()
 			return
 		}
 	}
@@ -140,7 +145,7 @@ func parseArgs(args []string) (SignalInfo, string, []string) {
 	sigInfo, err = parseTimeAndSignal(args[1])
 
 	if err != nil {
-		printError(err.Error())
+		terminal.Error(err)
 		os.Exit(ERROR_EXIT_CODE)
 	}
 
@@ -151,7 +156,7 @@ func parseArgs(args []string) (SignalInfo, string, []string) {
 	}
 
 	if !fsutil.CheckPerms("FX", cmdApp) {
-		printError("Can't execute command %q", args[2])
+		terminal.Error("Can't execute command %q", args[2])
 		os.Exit(ERROR_EXIT_CODE)
 	}
 
@@ -241,13 +246,13 @@ func parseTimeAndSignal(data string) (SignalInfo, error) {
 		return SignalInfo{wait, syscall.SIGTERM}, nil
 	}
 
-	wait, err = timeutil.ParseDuration(strutil.ReadField(data, 0, true, ":"))
+	wait, err = timeutil.ParseDuration(strutil.ReadField(data, 0, true, ':'))
 
 	if err != nil {
 		return SignalInfo{}, fmt.Errorf("Can't parse %q", data)
 	}
 
-	signal := strutil.ReadField(data, 1, true, ":")
+	signal := strutil.ReadField(data, 1, true, ':')
 
 	switch strings.ToUpper(signal) {
 	case "SIGABRT", "ABRT", "6":
@@ -319,16 +324,6 @@ func parseTimeAndSignal(data string) (SignalInfo, error) {
 	return SignalInfo{wait, sig}, nil
 }
 
-// printError prints error message to stderr
-func printError(message string, args ...interface{}) {
-	switch len(args) {
-	case 0:
-		fmt.Fprintf(os.Stderr, "%s\n", message)
-	case 1:
-		fmt.Fprintf(os.Stderr, "%s\n", fmt.Sprintf(message, args...))
-	}
-}
-
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 // genUsage generates usage info
@@ -365,6 +360,10 @@ func genAbout(gitRev string) *usage.About {
 
 		Owner:   "ESSENTIAL KAOS",
 		License: "Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>",
+	}
+
+	if gitRev != "" {
+		about.Build = "git:" + gitRev
 	}
 
 	return about
