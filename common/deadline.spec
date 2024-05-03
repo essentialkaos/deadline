@@ -6,7 +6,7 @@
 
 Summary:        Simple utility for controlling application working time
 Name:           deadline
-Version:        1.6.0
+Version:        1.6.1
 Release:        0%{?dist}
 Group:          Applications/System
 License:        Apache 2.0
@@ -16,7 +16,7 @@ Source0:        https://source.kaos.st/%{name}/%{name}-%{version}.tar.bz2
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  golang >= 1.20
+BuildRequires:  golang >= 1.21
 
 Provides:       %{name} = %{version}-%{release}
 
@@ -60,6 +60,11 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Fri May 03 2024 Anton Novojilov <andy@essentialkaos.com> - 1.6.1-0
+- Improved support information gathering
+- Code refactoring
+- Dependencies update
+
 * Thu Jan 11 2024 Anton Novojilov <andy@essentialkaos.com> - 1.6.0-0
 - Code refactoring
 - Dependencies update
