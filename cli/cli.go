@@ -34,7 +34,7 @@ import (
 
 const (
 	APP  = "deadline"
-	VER  = "1.6.1"
+	VER  = "1.6.2"
 	DESC = "Simple utility for controlling application working time"
 )
 

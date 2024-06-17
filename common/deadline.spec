@@ -6,7 +6,7 @@
 
 Summary:        Simple utility for controlling application working time
 Name:           deadline
-Version:        1.6.1
+Version:        1.6.2
 Release:        0%{?dist}
 Group:          Applications/System
 License:        Apache 2.0
@@ -60,6 +60,9 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Mon Jun 17 2024 Anton Novojilov <andy@essentialkaos.com> - 1.6.2-0
+- Dependencies update
+
 * Fri May 03 2024 Anton Novojilov <andy@essentialkaos.com> - 1.6.1-0
 - Improved support information gathering
 - Code refactoring
