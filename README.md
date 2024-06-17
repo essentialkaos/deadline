@@ -1,11 +1,11 @@
-<p align="center"><a href="#readme"><img src="https://gh.kaos.st/deadline.svg"/></a></p>
+<p align="center"><a href="#readme"><img src=".github/images/card.svg"/></a></p>
 
 <p align="center">
   <a href="https://kaos.sh/w/deadline/ci"><img src="https://kaos.sh/w/deadline/ci.svg" alt="GitHub Actions CI Status" /></a>
   <a href="https://kaos.sh/r/deadline"><img src="https://kaos.sh/r/deadline.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/b/deadline"><img src="https://kaos.sh/b/698e5d36-2465-4266-b3d2-7f58e52d5362.svg" alt="codebeat badge" /></a>
   <a href="https://kaos.sh/w/deadline/codeql"><img src="https://kaos.sh/w/deadline/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
-  <a href="#license"><img src="https://gh.kaos.st/apache2.svg"></a>
+  <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
 
 <p align="center"><a href="#installation">Installation</a> • <a href="#usage">Usage</a> • <a href="#build-status">Build Status</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
@@ -24,7 +24,7 @@ To build the `deadline` from scratch, make sure you have a working Go 1.21+ work
 go install github.com/essentialkaos/deadline@latest
 ```
 
-#### From [ESSENTIAL KAOS Public Repository](https://yum.kaos.st)
+#### From [ESSENTIAL KAOS Public Repository](https://kaos.sh/kaos-repo)
 
 ```bash
 sudo yum install -y https://pkgs.kaos.st/kaos-repo-latest.el$(grep 'CPE_NAME' /etc/os-release | tr -d '"' | cut -d':' -f5).noarch.rpm
@@ -43,22 +43,7 @@ bash <(curl -fsSL https://apps.kaos.st/get) deadline
 
 ### Usage
 
-```
-Usage: deadline {options} time:signal command…
-
-Options
-
-  --help, -h       Show this help message
-  --version, -v    Show version
-
-Examples
-
-  deadline 5m my-script.sh arg1 arg2
-  Run my-script.sh and send TERM signal in 5 minutes
-
-  deadline 5m:KILL my-script.sh arg1 arg2
-  Run my-script.sh and send KILL signal in 5 minutes
-```
+<p align="center"><img src=".github/images/usage.svg"/></p>
 
 ### Build Status
 

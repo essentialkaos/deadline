@@ -6,7 +6,7 @@
 
 Summary:        Simple utility for controlling application working time
 Name:           deadline
-Version:        1.6.1
+Version:        1.6.2
 Release:        0%{?dist}
 Group:          Applications/System
 License:        Apache 2.0
@@ -32,7 +32,10 @@ Simple utility for controlling application working time.
 
 %build
 if [[ ! -d "%{name}/vendor" ]] ; then
-  echo "This package requires vendored dependencies"
+  echo -e "----\nThis package requires vendored dependencies\n----"
+  exit 1
+elif [[ -f "%{name}/%{name}" ]] ; then
+  echo -e "----\nSources must not contain precompiled binaries\n----"
   exit 1
 fi
 
@@ -60,6 +63,9 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
+* Mon Jun 17 2024 Anton Novojilov <andy@essentialkaos.com> - 1.6.2-0
+- Dependencies update
+
 * Fri May 03 2024 Anton Novojilov <andy@essentialkaos.com> - 1.6.1-0
 - Improved support information gathering
 - Code refactoring
