@@ -17,17 +17,17 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/essentialkaos/ek/v12/env"
-	"github.com/essentialkaos/ek/v12/fmtc"
-	"github.com/essentialkaos/ek/v12/fsutil"
-	"github.com/essentialkaos/ek/v12/strutil"
-	"github.com/essentialkaos/ek/v12/support"
-	"github.com/essentialkaos/ek/v12/support/deps"
-	"github.com/essentialkaos/ek/v12/system/process"
-	"github.com/essentialkaos/ek/v12/terminal"
-	"github.com/essentialkaos/ek/v12/terminal/tty"
-	"github.com/essentialkaos/ek/v12/timeutil"
-	"github.com/essentialkaos/ek/v12/usage"
+	"github.com/essentialkaos/ek/v13/env"
+	"github.com/essentialkaos/ek/v13/fmtc"
+	"github.com/essentialkaos/ek/v13/fsutil"
+	"github.com/essentialkaos/ek/v13/strutil"
+	"github.com/essentialkaos/ek/v13/support"
+	"github.com/essentialkaos/ek/v13/support/deps"
+	"github.com/essentialkaos/ek/v13/system/process"
+	"github.com/essentialkaos/ek/v13/terminal"
+	"github.com/essentialkaos/ek/v13/terminal/tty"
+	"github.com/essentialkaos/ek/v13/timeutil"
+	"github.com/essentialkaos/ek/v13/usage"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
