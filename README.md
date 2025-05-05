@@ -3,7 +3,6 @@
 <p align="center">
   <a href="https://kaos.sh/w/deadline/ci"><img src="https://kaos.sh/w/deadline/ci.svg" alt="GitHub Actions CI Status" /></a>
   <a href="https://kaos.sh/r/deadline"><img src="https://kaos.sh/r/deadline.svg" alt="GoReportCard" /></a>
-  <a href="https://kaos.sh/b/deadline"><img src="https://kaos.sh/b/698e5d36-2465-4266-b3d2-7f58e52d5362.svg" alt="codebeat badge" /></a>
   <a href="https://kaos.sh/w/deadline/codeql"><img src="https://kaos.sh/w/deadline/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
@@ -18,7 +17,7 @@
 
 #### From sources
 
-To build the `deadline` from scratch, make sure you have a working Go 1.21+ workspace (_[instructions](https://go.dev/doc/install)_), then:
+To build the `deadline` from scratch, make sure you have a working [Go 1.23+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/deadline@latest
@@ -27,8 +26,8 @@ go install github.com/essentialkaos/deadline@latest
 #### From [ESSENTIAL KAOS Public Repository](https://kaos.sh/kaos-repo)
 
 ```bash
-sudo yum install -y https://pkgs.kaos.st/kaos-repo-latest.el$(grep 'CPE_NAME' /etc/os-release | tr -d '"' | cut -d':' -f5).noarch.rpm
-sudo yum install deadline
+sudo dnf install -y https://pkgs.kaos.st/kaos-repo-latest.el$(grep 'CPE_NAME' /etc/os-release | tr -d '"' | cut -d':' -f5).noarch.rpm
+sudo dnf install deadline
 ```
 
 #### Prebuilt binaries
@@ -54,10 +53,10 @@ bash <(curl -fsSL https://apps.kaos.st/get) deadline
 
 ### Contributing
 
-Before contributing to this project please read our [Contributing Guidelines](https://github.com/essentialkaos/contributing-guidelines#contributing-guidelines).
+Before contributing to this project please read our [Contributing Guidelines](https://github.com/essentialkaos/.github/blob/master/CONTRIBUTING.md).
 
 ### License
 
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-<p align="center"><a href="https://essentialkaos.com"><img src="https://gh.kaos.st/ekgh.svg"/></a></p>
+<p align="center"><a href="https://kaos.dev"><img src="https://raw.githubusercontent.com/essentialkaos/.github/refs/heads/master/images/ekgh.svg"/></a></p>
