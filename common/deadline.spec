@@ -63,7 +63,7 @@ rm -rf %{buildroot}
 ################################################################################
 
 %changelog
-* Tue May 06 2025 Anton Novojilov <andy@essentialkaos.com> - 1.6.4-0
+* Tue May 06 2025 Anton Novojilov <andy@essentialkaos.com> - 1.6.3-0
 - Dependencies update
 
 * Mon Jun 17 2024 Anton Novojilov <andy@essentialkaos.com> - 1.6.2-0
